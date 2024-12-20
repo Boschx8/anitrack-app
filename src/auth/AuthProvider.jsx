@@ -8,10 +8,16 @@ const AuthProvider = ({ children }) => {
   const domain = "dev-ujx6mu4palvd72gp.us.auth0.com";  
   const clientId = "IsR59xZDwe26WkGVH1JKo33FFZcuaTQY";
   
-  const redirectUri = window.location.origin + (process.env.NODE_ENV === 'production' 
-    ? '/anitrack-app' 
-    : '');
-    console.log('Redirect URI:', redirectUri);
+  // Obtener la URL completa actual
+  const currentUrl = window.location.href;
+  // Determinar si estamos en GitHub Pages
+  const isGitHubPages = currentUrl.includes('github.io');
+  
+  const redirectUri = isGitHubPages 
+    ? 'https://boschx8.github.io/anitrack-app'
+    : window.location.origin;
+
+  console.log('Current redirectUri:', redirectUri); // Para debugging
 
   const onRedirectCallback = (appState) => {
     navigate(appState?.returnTo || window.location.pathname);
