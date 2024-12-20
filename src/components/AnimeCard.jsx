@@ -26,7 +26,7 @@ const AnimeCard = ({ anime, onStatusUpdate = () => {}, onDelete = () => {}, isPr
     };
 
     try {
-      const response = await fetch(`http://localhost:5000/api/user-anime/${user.sub}/anime`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/user-anime/${user.sub}/anime`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ const AnimeCard = ({ anime, onStatusUpdate = () => {}, onDelete = () => {}, isPr
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user-anime/${user.sub}/anime/${anime.mal_id}`, 
+        `${import.meta.env.VITE_API_URL}/api/user-anime/${user.sub}/anime/${anime.mal_id}`, 
         { method: 'DELETE' }
       );
 

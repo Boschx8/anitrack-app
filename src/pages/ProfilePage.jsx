@@ -14,7 +14,7 @@ const ProfilePage = () => {
     if (!user) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/user-anime/${user.sub}`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/user-anime/${user.sub}`);
       const data = await response.json();
 
       if (!response.ok) {
