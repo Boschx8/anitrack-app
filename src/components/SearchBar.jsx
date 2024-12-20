@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Search, Loader2, Bookmark, Check, Eye, X } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import ToastProvider from './ToastProvider';
+import { useNavigate } from 'react-router-dom';
 
 const SearchBar = () => {
   const [query, setQuery] = useState('');
@@ -11,6 +12,7 @@ const SearchBar = () => {
   const dropdownRef = useRef(null);
   const searchTimeout = useRef(null);
   const { user } = useAuth();
+  const navigate = useNavigate();
 
   const clearSearch = () => {
     setQuery('');
@@ -163,7 +165,7 @@ const SearchBar = () => {
                       .toLowerCase()
                       .replace(/[^a-z0-9]+/g, '-')
                       .replace(/^-+|-+$/g, '');
-                    window.location.href = `/anime/${urlTitle}`;
+                      navigate(`/anime/${urlTitle}`);
                   }}
                 >
                   <div className="search-result-content">
