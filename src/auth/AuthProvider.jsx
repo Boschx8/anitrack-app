@@ -7,7 +7,7 @@ const AuthProvider = ({ children }) => {
 
   const domain = "dev-ujx6mu4palvd72gp.us.auth0.com";  
   const clientId = "IsR59xZDwe26WkGVH1JKo33FFZcuaTQY";
-  const redirectUri = window.location.origin;
+  const redirectUri = window.location.origin + process.env.BASE_URL;
 
   const onRedirectCallback = (appState) => {
     navigate(appState?.returnTo || window.location.pathname);
