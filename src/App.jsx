@@ -41,21 +41,21 @@ const App = () => {
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<HomePage />} />
-        <Route path="/catalog" element={<CatalogPage />} />
-        <Route path="/collections" element={<CollectionsPage />} />
-        <Route path="/anime/:title" element={<AnimeDetailPage />} />
+        <Route path="/" element={<CatalogPage />} />
+        <Route path="/" element={<CollectionsPage />} />
+        <Route path="/" element={<AnimeDetailPage />} />
         
         {/* Auth Routes */}
-        <Route path="/login" element={
+        <Route path="/" element={
           isAuthenticated ? <Navigate to="/profile" replace /> : <LoginPage />
         } />
-        <Route path="/register" element={
+        <Route path="/" element={
           isAuthenticated ? <Navigate to="/profile" replace /> : <RegisterPage />
         } />
         
         {/* Protected Routes */}
         <Route
-          path="/profile"
+          path="/"
           element={
             <ProtectedRoute>
               <ProfilePage />
