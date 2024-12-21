@@ -163,7 +163,7 @@ const SearchBar = () => {
                       .toLowerCase()
                       .replace(/[^a-z0-9]+/g, '-')
                       .replace(/^-+|-+$/g, '');
-                    window.location.href = `/anime/${urlTitle}`;
+                    window.location.hash = `/anime/${urlTitle}`;
                   }}
                 >
                   <div className="search-result-content">
