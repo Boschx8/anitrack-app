@@ -18,7 +18,7 @@ const AuthProvider = ({ children }) => {
     ? 'https://boschx8.github.io/anitrack-app'
     : window.location.origin;
 
-  console.log('Current redirectUri:', redirectUri); // Para debugging
+  console.log('Current redirectUri:', redirectUri); 
 
   const onRedirectCallback = (appState) => {
     navigate(appState?.returnTo || window.location.pathname);
